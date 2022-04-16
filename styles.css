@@ -1,0 +1,123 @@
+html {
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    margin: 0px;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+img {
+    max-height: 100%;
+    max-width: 100%;
+}
+
+#wrapper {
+    max-height: 600px;
+    max-width: 550px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 5px solid #181818;
+    border-radius: 5px;
+    background-color: #353535;
+}
+
+#main-header {
+    font-family: Avanta Garde;
+    /* text-shadow: 4px 2px #daf2ff; */
+    width: 470px;
+    text-align: end;
+    color: #ffc107;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 0px;
+    border-right-width: 5px;
+    padding-right: 15px;
+}
+
+#main-content {
+    width: 480px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#screen {
+    height: 80px;
+    width: 415px;
+    background-color: rgb(198 198 198);
+    box-shadow: 14px 0px #000000, -0.5em 0 0.01em black;
+    border: 7px solid darkslategray;
+    border-radius: 7px;
+    text-align: end;
+    font-size: 45px;
+    text-shadow: 2px 2px grey;
+}
+
+#buttons-container {
+    display: flex;
+    justify-content: center;
+    background-color: darkgrey;
+    width: 415px;
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#numbers-container {
+    height: 300px;
+    width: 290px;
+    display: flex;
+    background-color: aliceblue;
+    border-radius: 4px;
+    margin-top: 10px;
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    padding: 0px;
+}
+
+button {
+    height: 60px;
+    width: 90px;
+}
+
+#operations-container {
+    height: 300px;
+    width: 110px;
+    display: flex;
+    background-color: #c0bcbc;
+    border-radius: 4px;
+    margin-top: 10px;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.operations {
+    background-color: #ee873d;
+    height: 50px;
+    width: 90px;
+}
+
+.number {
+    background-color: cornflowerblue;
+}
+
+.clear {
+    background-color: rgb(243, 86, 86);
+}
+
+
