@@ -138,6 +138,8 @@ function firstN(e) {
 
     console.log(e.key)
     if (ope === 'none') {
+        if (isNaN(e.key)) return;
+
         if (A.includes(".") && (e.key) === ".") {
             return;
         }
@@ -150,8 +152,11 @@ function firstN(e) {
 function secondN(e) {
     // const key = document.querySelectorAll(`.number[data-key="${e.keyCode}"]`)
 
+
     console.log(e.key)
     if (ope != "none") {
+        if (isNaN(e.key)) return;
+
         if (B.includes(".") && (e.key) === ".") {
             return;
         }
