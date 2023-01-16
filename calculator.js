@@ -45,62 +45,23 @@ function operate(firstNumber, secondNumber, operation) {
         A = add(firstNumber, secondNumber);
         console.log(A);
         calculator.fNumber = A;
-        if (A.toString > 17 & A.toString < 21) {
-            screen.innerText = modNumber(A);
-        } else {
-            screen.innerText = A;
-        }
+        screen.innerText = A;
     } else if (operation === "subtract") {
         A = subtract(firstNumber, secondNumber);
         console.log(A);
         calculator.fNumber = A;
-        if (A.toString > 17 & A.toString < 21) {
-            screen.innerText = modNumber(A);
-        } else {
-            screen.innerText = A;
-        }
+        screen.innerText = A;
     } else if (operation === "multiply") {
         A = multiply(firstNumber, secondNumber);
         console.log(A);
         calculator.fNumber = A;
-        if (A.toString > 17 & A.toString < 21) {
-            screen.innerText = modNumber(A);
-        } else {
-            screen.innerText = A;
-        }
+        screen.innerText = A;
     } else if (operation === "divide") {
         A = divide(firstNumber, secondNumber);
         console.log(A);
         calculator.fNumber = A;
-        if (A.toString > 17 & A.toString < 21) {
-            screen.innerText = modNumber(A);
-        } else {
-            screen.innerText = A;
-        }
+        screen.innerText = A;
     }
-}
-
-// if number is greater than display limit, then return (NUMBER E^#)
-function modNumber(number) {
-    n = Math.round(number);
-    let str = n.toString()
-    console.log(`str ${str}`);
-    console.log(`length ${str.length}`);
-    if (str.includes(".")) {
-        str = str.replace('.', '');
-    }
-    let sub = str.substring(0,4);
-    console.log(`sub ${sub}`);
-    let arr = Array.from(sub);
-    console.log(`arr ${arr}`);
-    let result = arr[0] + '.';
-    for (i = 1; i < arr.length; i++) {
-        result += arr[i];
-    }
-    console.log(result);
-    let num = result
-    let exponent = str.length-1;
-    return `${result}e+${exponent}`;
 }
 
 // EVENTS LISTENERS
@@ -168,6 +129,7 @@ clear.addEventListener('click', function() {
     ope = "none";
 })
 
+// EVENT LISTENERS AND FUNCTIONS USING KEYS
 // Populates 1st Number using keys
 function firstN(e) {
     // const key = document.querySelectorAll(`.number[data-key="${e.keyCode}"]`)
