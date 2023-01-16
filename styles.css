@@ -19,15 +19,17 @@ img {
 
 #wrapper {
     max-height: 600px;
-    max-width: 550px;
+    max-width: 650px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     border: 5px solid #181818;
-    border-radius: 5px;
-    background-color: #353535;
+    border-radius: 15px;
+    background-color: #222222;
     margin-top: 100px;
+    font-smooth: never;
+    -webkit-font-smoothing: none;
 }
 
 #main-header {
@@ -44,7 +46,7 @@ img {
 }
 
 #main-content {
-    width: 480px;
+    width: 650px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -53,24 +55,37 @@ img {
 
 #screen {
     height: 80px;
-    width: 415px;
+    width: 550px;
     background-color: rgb(198 198 198);
     box-shadow: 14px 0px #000000, -0.5em 0 0.01em black;
     border: 7px solid darkslategray;
-    border-radius: 7px;
+    border-radius: 10px;
     text-align: end;
     font-size: 45px;
     text-shadow: 2px 2px grey;
+    padding-right: 10px;
 }
 
 #buttons-container {
     display: flex;
-    justify-content: center;
-    background-color: darkgrey;
-    width: 415px;
-    border-radius: 5px;
+    justify-content:space-between;
+    background-color: #222222;
+    width: 550px;
+    border-radius: 10px;
     margin-top: 10px;
     margin-bottom: 10px;
+}
+
+.visual-container {
+    background: url(./UWs6.gif);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 300px;
+    width: 25%;
+    margin: 10px 20px 0px 0px;
+    border-radius: 5px;
+    border-color: #222222;
+    border-width: 0px 10px 0px 0px;
 }
 
 #numbers-container {
@@ -78,7 +93,7 @@ img {
     width: 290px;
     display: flex;
     background-color: aliceblue;
-    border-radius: 4px;
+    border-radius: 5px;
     margin-top: 10px;
 }
 
@@ -101,24 +116,29 @@ button {
     width: 110px;
     display: flex;
     background-color: #c0bcbc;
-    border-radius: 4px;
+    border-radius: 5px;
     margin-top: 10px;
     flex-direction: column;
     justify-content: space-evenly;
 }
 
 .operations {
-    background-color: #ee873d;
+    background-color: cornflowerblue;
     height: 50px;
     width: 90px;
 }
 
 .number {
-    background-color: cornflowerblue;
+    background-color: #a96eb6;
 }
 
 .clear {
-    background-color: rgb(243, 86, 86);
+    background-color: #725384;
+}
+
+.equals {
+    background-color: #4566a2
+    ;
 }
 
 

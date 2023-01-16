@@ -17,15 +17,9 @@ const calculator = {
     sNumber: 0,
 
     operation: ope,
-
-    operate: function() {
-        result = this.firstNumber * this.secondNumber;
-        return result;
-    },
 };
 
 // functions needed to perform calculations
-
 const add = (a, b) => {
     return a + b;
 }
@@ -45,36 +39,80 @@ const divide = (a, b) => {
     return a / b;
 }
 
-// proceeds to solve the equation
+// performs operation 
 function operate(firstNumber, secondNumber, operation) {
     if (operation === "add") {
         A = add(firstNumber, secondNumber);
+        console.log(A);
         calculator.fNumber = A;
-        screen.innerText = A;
+        if (A.toString > 17 & A.toString < 21) {
+            screen.innerText = modNumber(A);
+        } else {
+            screen.innerText = A;
+        }
     } else if (operation === "subtract") {
         A = subtract(firstNumber, secondNumber);
+        console.log(A);
         calculator.fNumber = A;
-        screen.innerText = A;
+        if (A.toString > 17 & A.toString < 21) {
+            screen.innerText = modNumber(A);
+        } else {
+            screen.innerText = A;
+        }
     } else if (operation === "multiply") {
         A = multiply(firstNumber, secondNumber);
+        console.log(A);
         calculator.fNumber = A;
-        screen.innerText = A;
+        if (A.toString > 17 & A.toString < 21) {
+            screen.innerText = modNumber(A);
+        } else {
+            screen.innerText = A;
+        }
     } else if (operation === "divide") {
         A = divide(firstNumber, secondNumber);
+        console.log(A);
         calculator.fNumber = A;
-        screen.innerText = A;
+        if (A.toString > 17 & A.toString < 21) {
+            screen.innerText = modNumber(A);
+        } else {
+            screen.innerText = A;
+        }
     }
 }
 
-// Event Listeners
-// 1st Event, gets first number
-// is only used in the first cycle, unless clear is clicked
+// if number is greater than display limit, then return (NUMBER E^#)
+function modNumber(number) {
+    n = Math.round(number);
+    let str = n.toString()
+    console.log(`str ${str}`);
+    console.log(`length ${str.length}`);
+    if (str.includes(".")) {
+        str = str.replace('.', '');
+    }
+    let sub = str.substring(0,4);
+    console.log(`sub ${sub}`);
+    let arr = Array.from(sub);
+    console.log(`arr ${arr}`);
+    let result = arr[0] + '.';
+    for (i = 1; i < arr.length; i++) {
+        result += arr[i];
+    }
+    console.log(result);
+    let num = result
+    let exponent = str.length-1;
+    return `${result}e+${exponent}`;
+}
+
+// EVENTS LISTENERS
+// Populates 1st number Clicking
+// is only used in the first cycle, unless clear is clicked to restart
 numberA.forEach(number => 
     number.addEventListener('click', function() {
         if (ope === 'none') {
+            // cannot have more than 1 decimal point
             if (A.includes(".") && number.id === ".") {
                 return;
-            }
+            } else if (A.length == 17) return;
 
             A.push(number.id)
             screen.innerText = A.join("");
@@ -82,7 +120,7 @@ numberA.forEach(number =>
     }
 ));
 
-// 2nd Event, gets operation to be used
+// Populates operation Clicking
 // (ope === 'none') helps to differentiate the cycle in which calculator is in
 operations.forEach(operation => 
     operation.addEventListener('click', function() {
@@ -96,13 +134,13 @@ operations.forEach(operation =>
     }
 ));
 
-// 3rd Event, gets the 2nd number
+// Populates the 2nd number Clicking
 numberB.forEach(number =>
     number.addEventListener('click', function() {
         if (ope != "none") {
             if (B.includes(".") && number.id === ".") {
                 return;
-            }
+            } else if (B.length == 17) return;
 
             B.push(number.id)
             screen.innerText = B.join("");
@@ -112,6 +150,7 @@ numberB.forEach(number =>
 
 // triggers operate function and resets certain values to cycle again
 equals.addEventListener('click', function() {
+    // will trigger if second number has populated
     if (B != []) {
         calculator.sNumber = parseFloat(B.join(""));
         operate(calculator.fNumber, calculator.sNumber, ope)
@@ -121,8 +160,7 @@ equals.addEventListener('click', function() {
     }
 })
 
-
-// resets values to start again
+// clear function of calculator, resets values to default
 clear.addEventListener('click', function() {
     screen.innerText = 0;
     A = [];
@@ -130,38 +168,31 @@ clear.addEventListener('click', function() {
     ope = "none";
 })
 
-window.addEventListener('keydown', firstN);
-window.addEventListener('keydown', secondN);
-
+// Populates 1st Number using keys
 function firstN(e) {
     // const key = document.querySelectorAll(`.number[data-key="${e.keyCode}"]`)
-
-    console.log(e.key)
     if (ope === 'none') {
         if (isNaN(e.key)) return;
-
-        if (A.includes(".") && (e.key) === ".") {
-            return;
-        }
+        else if (A.length > 17) return;
+        else if (A.includes(".") && (e.key) === ".") return;
 
         A.push(e.key);
         screen.innerText = A.join("");
     }
 }
 
+// Populates 2nd Number using keys
 function secondN(e) {
     // const key = document.querySelectorAll(`.number[data-key="${e.keyCode}"]`)
-
-
-    console.log(e.key)
     if (ope != "none") {
         if (isNaN(e.key)) return;
-
-        if (B.includes(".") && (e.key) === ".") {
-            return;
-        }
+        else if (B.length > 17) return;
+        else if (B.includes(".") && (e.key) === ".") return;
 
         B.push(e.key);
         screen.innerText = B.join("");
     }
 }
+
+window.addEventListener('keydown', firstN);
+window.addEventListener('keydown', secondN);
